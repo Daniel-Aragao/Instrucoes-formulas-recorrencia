@@ -1,0 +1,182 @@
+
+
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aula 6</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="CSS/site.css">
+<link rel="stylesheet" href="http://balloonalerts.azurewebsites.net/css/balloon.css">
+</head>
+<body>
+
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+	<div class="col-lg-10 col-lg-offset-1" style="margin-top:50px;">
+		<div class="panel panel-default">
+			<div class="panel-heading">Aula 6</div>
+			<div class="panel-body">
+				<div class="jumbotron">
+					<h1>Fórmulas de Recorrência</h1>
+					<p>
+						Conceitua-se fórmula recorrente uma fórmula onde um de seus 
+						termos é a própria fórmula gerando assim uma Recursão ou 
+						Recorrência.						
+					</p>
+					<p>
+						Sendo assim, existem métodos utilizados para eliminar a 
+						recorrência das fórmulas, os quais serão estudados abaixo:
+						<ul>
+							<li><h3>Método da Soma</h3></li>
+							<li><h3>Método da Substituição</h3></li>
+							<li><h3>Método da Árvore</h3></li>
+							<li><h3>Método Mestre</h3></li>
+						</ul>
+					</p>
+				</div>
+
+				<div class="panel-group" id="accordion">					
+					<div class="panel panel-primary blocos">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#mtd-soma" data-parent="#accordion">Método da Soma</a>
+							</h4>
+						</div>
+						<div id="mtd-soma" class="panel-collapse collapse">
+							<div class="panel-body">
+								<p>
+									O método da soma consiste em, literalmente, somar as <b>N</b>
+									funções descendentes da função inicial, ou seja, gerar resultado
+									a partir das variações de <b>F(N)</b>. Por exemplo:
+								</p>
+								<p>
+									Para F(N) = F(N-1) + 1, onde F(1) = 1 temos:  
+								</p>
+								<div data-animar-group="soma">
+									<div id="controle-soma" data-controle=soma class="painel-de-controle">
+										<button title="Próximo" class="btn btn-info" data-controle="init" >
+											<span class="glyphicon glyphicon-play"></span>
+										</button>
+										<button title="Recomeçar" class="btn btn-info" data-controle="restart" >
+											<span class="glyphicon glyphicon-repeat"></span>
+										</button>									
+									</div>
+									<p data-animar-ordem="1">T(N) = T(N-1)+1</p>
+									<p data-animar-ordem="2">T(N-1) = T(N-2)+1</p>
+									<p data-animar-ordem="3">T(N-2) = T(N-3)+1</p>
+									<p data-animar-ordem="4">...</p>
+									<p data-animar-ordem="5">T(2) = T(1)+1</p>
+									<p data-animar-ordem="6">T(1) = 1</p>
+									<p data-animar-ordem="7">+_______________</p>
+									<p data-animar-ordem="8">T(N) = 1<span>1</span> 
+										+ 1<span >2</span> 
+										+ 1<span>3</span>..... 
+										1<span>N</span>
+									</p>
+									<p data-animar-ordem="9">T(N) = N</p>
+									<p data-animar-ordem="10">T(N) Є O(N)</p>									
+								</div>
+							</div>
+							<div class="panel-footer">
+								<button class="btn btn-info pull-right" onclick=$('[href="#mtd-subst"]').click()>
+									Próximo
+								</button>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-primary blocos">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#mtd-subst" data-parent="#accordion">Método da Substituição</a>
+							</h4>
+						</div>
+						<div id="mtd-subst" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div data-animar-group="substituicao">
+									<div id="controle-soma" data-controle=substituicao class="painel-de-controle">
+										<button title="Próximo" class="btn btn-info" data-controle="init" >
+											<span class="glyphicon glyphicon-play"></span>
+										</button>
+										<button title="Recomeçar" class="btn btn-info" data-controle="restart" >
+											<span class="glyphicon glyphicon-repeat"></span>
+										</button>									
+									</div>
+									<p data-animar-ordem="1">T(N) = T(N-1)+1</p>
+									<p data-animar-ordem="2">T(N-1) = T(N-2)+1</p>
+									<p data-animar-ordem="3">T(N-2) = T(N-3)+1</p>
+									<p data-animar-ordem="4">...</p>
+									<p data-animar-ordem="5">T(2) = T(1)+1</p>
+									<p data-animar-ordem="6">T(1) = 1</p>
+									<p data-animar-ordem="7">+_______________</p>
+									<p data-animar-ordem="8">T(N) = 1<span>1</span> 
+										+ 1<span >2</span> 
+										+ 1<span>3</span>..... 
+										1<span>N</span>
+									</p>
+									<p data-animar-ordem="9">T(N) = N</p>
+									<p data-animar-ordem="10">T(N) Є O(N)</p>									
+								</div>
+
+							</div>
+							<div class="panel-footer">
+								<button class="btn btn-info pull-right" onclick=$('[href="#mtd-arvore"]').click()>
+										Próximo
+								</button>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-primary blocos">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#mtd-arvore" data-parent="#accordion">Método da Árvore</a>
+							</h4>
+						</div>
+						<div id="mtd-arvore" class="panel-collapse collapse">
+							<div class="panel-body">Panel Body</div>
+							<div class="panel-footer">
+								<button class="btn btn-info pull-right" onclick=$('[href="#mtd-mestre"]').click()>
+										Próximo
+								</button>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-primary blocos">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#mtd-mestre" data-parent="#accordion">Método Mestre</a>
+							</h4>
+						</div>
+						<div id="mtd-mestre" class="panel-collapse collapse">
+							<div class="panel-body">Panel Body</div>
+							<div class="panel-footer">
+								<button class="btn btn-info pull-right" onclick=$('[href="#mtd-mestre"]').click()>
+										Início
+								</button>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://balloonalerts.azurewebsites.net/JavaScript/balloon.js"></script>
+	<script src="JavaScript/Site.js"></script>
+</body>
+</html>
