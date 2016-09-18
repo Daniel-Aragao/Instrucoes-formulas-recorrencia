@@ -168,7 +168,48 @@
 							</h4>
 						</div>
 						<div id="mtd-arvore" class="panel-collapse collapse">
-							<div class="panel-body">Panel Body</div>
+							<div class="panel-body">
+								<p>
+									Árvore de recursão, também chamado, é utilizado para se fazer uma suposição mais
+									um pouco mais precisa do que um chute ao se utilziar o método da substituição,
+									ou seja, é pouco preciso se comparado ao método da soma ou o próprio método da 
+									substituição.
+								</p>
+								<p>
+									Consiste em simular os nós de uma chamada recursiva desmembrando cada uma delas
+									até N atingir o F(1) = 1.
+								</p>
+								<p>Observe o exemplo para F(N) = 2F(N/2) + N, para F(1) = 1:</p>
+								<div data-animar-group="arvore">
+									<div id="controle-soma" data-controle=arvore class="painel-de-controle">
+										<button title="Próximo" class="btn btn-info" data-controle="init" >
+											<span class="glyphicon glyphicon-play"></span>
+										</button>
+										<button title="Recomeçar" class="btn btn-info" data-controle="restart" >
+											<span class="glyphicon glyphicon-repeat"></span>
+										</button>									
+									</div>
+									<p data-animar-ordem="1">1.N</p>
+									<p data-animar-ordem="2">/<span class="tdivider"></span><span class="tdivider"></span><span class="tdivider"></span>\</p>
+									<p data-animar-ordem="3">2.N/2	<span class="tdivider"></span><span class="tdivider"></span><span class="tdivider"></span><span class="tdivider"></span>	N/2</p>
+									<p data-animar-ordem="4">/<span class="tdivider"></span>\<span class="tdivider"></span><span class="tdivider"></span><span class="tdivider"></span><span class="tdivider"></span>/<span class="tdivider"></span>\</p>
+									<p data-animar-ordem="5">3.T(N/4)<span class="tdivider"></span>T(N/4)<span class="tdivider"></span>T(N/4)<span class="tdivider"></span>T(N/4)</p>
+									<p data-animar-ordem="6">...</p>
+									<p data-animar-ordem="7">Se somarmos cada linha teremos:</p>
+									<p data-animar-ordem="8">1.: N = N</p>
+									<p data-animar-ordem="9">2.: N/2 + N/2 = N</p>
+									<p data-animar-ordem="10">3.:N/4 + N/4 + N/4 + N/4 = N</p>
+									<p data-animar-ordem="11">.... = N </p>
+									<p data-animar-ordem="12">+_______________</p>
+									<p data-animar-ordem="13">T(N) = N<span>1</span> 
+										+ N<span>2</span> 
+										+ N<span>3</span> .... 
+										+ N<span>LOG(N)</span>
+									</p>
+									<p data-animar-ordem="14">T(N) = N * Log(N)</p>
+									<p data-animar-ordem="15">F(N) Є O(N Log(N))</p>
+								</div>
+							</div>
 							<div class="panel-footer">
 								<button class="btn btn-info pull-right" onclick=$('[href="#mtd-mestre"]').click()>
 										Próximo
@@ -185,7 +226,117 @@
 							</h4>
 						</div>
 						<div id="mtd-mestre" class="panel-collapse collapse">
-							<div class="panel-body">Panel Body</div>
+							<div class="panel-body">
+								<p>
+									O método mestre costuma ser usado para responder problemas de recorrência onde
+									a fórmula de recorrência apresenta um formato específico:
+								</p>
+								<p>
+									<b>T(N) = AT(N/B) + F(N)</b>
+									<ul class="numeric">
+										<li>Onde A >= 1</li>
+										<li>B > 1</li>
+										<li>A, B são constantes</li>
+										<li>e F(N) é uma função positiva</li>
+									</ul>
+								</p>
+								<div>
+									<p>
+										Obedecendo as regras acima temos que 
+										comparar F(N) com os três casos. ɛ > 0
+									</p>
+									<p>
+										Obs.:levar em consideração que ɛ é uma constante muito pequena e ɛ > 0
+									</p>
+									<ul >
+										<li>
+											<p><b>Caso 1:</b></p>
+											<p>
+												Se F(N) = O(N^Log<span class="fmenor">B</span>(A - ɛ)), 
+												então T(N) Є ϴ(N^Log<span class="fmenor">B</span>(A)). 
+											</p>
+										</li>
+										<li>
+											<p><b>Caso 2:</b></p>
+											<p>
+												Se F(N) = ϴ(N^Log<span class="fmenor">B</span>(A)), 
+												então T(N) Є ϴ(N^Log<span class="fmenor">B</span>(A) 
+												* Log<span class="fmenor">2</span>(N)). 
+											</p>
+										</li>
+										<li>
+											<p><b>Caso 3:</b></p>
+											<p>
+												Se F(N) = Ω(N^Log<span class="fmenor">B</span>(A + ɛ)), 
+												e se A * F(N/B) < c * F(N) para c < 1, então T(N) 
+												então T(N) Є ϴ(N^Log<span class="fmenor">B</span>(A)) Є 
+												ϴ(F(N)).
+											</p>
+										</li>
+									</ul>
+								</div>
+								<div data-animar-group="caso-1">
+									<div id="controle-soma" data-controle=caso-1 class="painel-de-controle">
+										<button title="Próximo" class="btn btn-info" data-controle="init" >
+											<span class="glyphicon glyphicon-play"></span>
+										</button>
+										<button title="Recomeçar" class="btn btn-info" data-controle="restart" >
+											<span class="glyphicon glyphicon-repeat"></span>
+										</button>									
+									</div>
+
+									<p data-animar-ordem="1">1. <b>T(N) = 9T(N/3) + N</b></p>
+									<p data-animar-ordem="2">A = 9; B = 3; F(N) = N</p>
+									<p data-animar-ordem="3">
+										N^Log<span class="fmenor">b</span>(A) = 
+										N^Log<span class="fmenor">3</span>(9) = 
+										N^(2 - ɛ)
+									</p>
+									<p data-animar-ordem="4">Caso 1!</p>
+									<p data-animar-ordem="5">T(N) Є ϴ(N^Log<span class="fmenor">B</span>(A))</p>
+									<p data-animar-ordem="6">T(N) Є ϴ(N^2)</p>																		
+								</div>
+								<div data-animar-group="caso-2">
+									<div id="controle-soma" data-controle=caso-2 class="painel-de-controle">
+										<button title="Próximo" class="btn btn-info" data-controle="init" >
+											<span class="glyphicon glyphicon-play"></span>
+										</button>
+										<button title="Recomeçar" class="btn btn-info" data-controle="restart" >
+											<span class="glyphicon glyphicon-repeat"></span>
+										</button>									
+									</div>
+									
+									<p data-animar-ordem="7">2. <b>T(N) = T(2N/3) + 1</b></p>
+									<p data-animar-ordem="8">A = 1; B = 3/2; F(N) = 1</p>
+									<p data-animar-ordem="9">Caso 2!</p>
+									<p data-animar-ordem="10">T(N) Є ϴ(N^Log<span class="fmenor">B</span>(A) 
+												* Log<span class="fmenor">2</span>(N))
+									</p>
+									<p data-animar-ordem="11">T(N) Є ϴ(Log<span class="fmenor">2</span>N)</p>																	
+								</div>
+								<div data-animar-group="caso-3">
+									<div id="controle-soma" data-controle=caso-3 class="painel-de-controle">
+										<button title="Próximo" class="btn btn-info" data-controle="init" >
+											<span class="glyphicon glyphicon-play"></span>
+										</button>
+										<button title="Recomeçar" class="btn btn-info" data-controle="restart" >
+											<span class="glyphicon glyphicon-repeat"></span>
+										</button>									
+									</div>		
+
+									<p data-animar-ordem="12">3. <b>T(N) = 3T(N/4) + NLogN</b></p>
+									<p data-animar-ordem="13">A = 3;  B = 4; F(N) = NLogN</p>
+									<p data-animar-ordem="14">Caso 3!</p>	
+									<p data-animar-ordem="15">3F(N/4) < cF(N)</p>
+									<p data-animar-ordem="16">3 * N/4 * Log(N/4) < cNLogN</p>
+									<p data-animar-ordem="17">3N/4 * (LogN - Log4) < cNLogN</p>
+									<p data-animar-ordem="18">3NLogN/4 - 3NLog4/4) < cNLogN</p>
+									<p data-animar-ordem="19">Ok! para c = 3/4</p>	
+									<p data-animar-ordem="20">T(N) Є ϴ(F(N))</p>
+									<p data-animar-ordem="21">T(N) Є ϴ(NLogN)</p>																		
+								</div>
+								
+							</div>
 							<div class="panel-footer">
 								<button class="btn btn-info pull-right" onclick=$('[href="#mtd-mestre"]').click()>
 										Fim
