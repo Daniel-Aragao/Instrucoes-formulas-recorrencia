@@ -21,7 +21,7 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-	<div class="col-lg-10 col-lg-offset-1" style="margin-top:50px;">
+	<div id=container class="col-lg-10 col-lg-offset-1" style="margin-top:50px;">
 		<div class="panel panel-default">
 			<div class="panel-heading">Aula 6</div>
 			<div class="panel-body">
@@ -103,6 +103,21 @@
 						</div>
 						<div id="mtd-subst" class="panel-collapse collapse">
 							<div class="panel-body">
+								<p>
+									O método da substituição é também conhecido como 
+									expandir, conjecturar ou verificar e consistem em
+									duas etapas:
+									<ul class="numeric">
+										<li>Pressupor a fórmula solução</li>
+										<li>Através da indução matemática provar que a solução funciona</li>
+									</ul>
+								</p>
+								<p>
+									O nome é originado do fato de que o palpite será substituído pela
+									resposta final, sendo assim o palpite poderá ser alterado para
+									chegar a respostas mais precisas ao verificar a corretude desse
+									palpite
+								</p>
 								<div data-animar-group="substituicao">
 									<div id="controle-soma" data-controle=substituicao class="painel-de-controle">
 										<button title="Próximo" class="btn btn-info" data-controle="init" >
@@ -112,20 +127,28 @@
 											<span class="glyphicon glyphicon-repeat"></span>
 										</button>									
 									</div>
-									<p data-animar-ordem="1">T(N) = T(N-1)+1</p>
-									<p data-animar-ordem="2">T(N-1) = T(N-2)+1</p>
-									<p data-animar-ordem="3">T(N-2) = T(N-3)+1</p>
-									<p data-animar-ordem="4">...</p>
-									<p data-animar-ordem="5">T(2) = T(1)+1</p>
-									<p data-animar-ordem="6">T(1) = 1</p>
-									<p data-animar-ordem="7">+_______________</p>
-									<p data-animar-ordem="8">T(N) = 1<span>1</span> 
-										+ 1<span >2</span> 
-										+ 1<span>3</span>..... 
-										1<span>N</span>
+									<p data-animar-ordem="1">Provar {T(N) | N >= 1}</p>
+									<p data-animar-ordem="2">Utilizando a base T(1)</p>
+									<p data-animar-ordem="3">e Supondo T(N)</p>
+									<p data-animar-ordem="4">Provamos por indução T(N-1)</p>
+									<p data-animar-ordem="5">Segue exemplo com o cálculo recursivo exponencial(a^b): </p>									
+									<p data-animar-ordem="6">Tendo T(N)<span>1</span> = 4 + T(N -1)</p>
+									<p data-animar-ordem="7">Chegamos a fórmula T(N)<span>2</span> = 4N - 2</p>
+									<p data-animar-ordem="8">
+										Para N = 1 é fácil ver que a solução palpite está correta,
+										pois T(1)<span>2</span> = 2.
 									</p>
-									<p data-animar-ordem="9">T(N) = N</p>
-									<p data-animar-ordem="10">T(N) Є O(N)</p>									
+									<p data-animar-ordem="9">
+										Agora, se tivermos um N > 1 vamos supor que T(N)<span>2</span>
+										também é válida para (N-1) ao invés de (N)
+									</p>
+									<p data-animar-ordem="10">T(N)<span>1</span> = 4 + T(N-1)<span>2</span></p>
+									<p data-animar-ordem="11">T(N)<span>1</span> = 4 + [4(N - 1) - 2]</p>
+									<p data-animar-ordem="12">T(N)<span>1</span> = 4 + [4N - 4 - 2]</p>
+									<p data-animar-ordem="13">T(N)<span>1</span> = 4 + [4N - 6]</p>
+									<p data-animar-ordem="14">T(N)<span>1</span> = 4N - 2</p>		
+									<p data-animar-ordem="15">T(N)<span>1</span> = T(N)<span>2</span></p>	
+									<p data-animar-ordem="16">T(N)<span>1,2</span> Є O(N)</p>						
 								</div>
 
 							</div>
@@ -165,7 +188,7 @@
 							<div class="panel-body">Panel Body</div>
 							<div class="panel-footer">
 								<button class="btn btn-info pull-right" onclick=$('[href="#mtd-mestre"]').click()>
-										Início
+										Fim
 								</button>
 								<div class="clearfix"></div>
 							</div>

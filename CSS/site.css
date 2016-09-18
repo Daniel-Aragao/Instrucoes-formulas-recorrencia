@@ -33,11 +33,15 @@ p[data-animar-ordem] span{
 p[data-animar-ordem]{
     color: black;
     font-weight: bold;    
+    transition: 0.1s;
+    font-size: 14px;
+    /*overflow: hidden;*/
 }
 
 p[data-animar-ordem]:hover{
     color: red;
-    font-style: italic;
+    font-size:16px;
+    /*font-style: italic;*/
 }
 
 div[data-animar-group]{
@@ -45,11 +49,27 @@ div[data-animar-group]{
     margin: 3px;
     border-radius: 4px;
     background-color: #dedddd;
-    width: fit-content;
+    width: 100%;
     text-align: center;
     border: 1px solid black;
 }
 
-div[data-animar-group]:{
-    display: none;
+ul.numeric{
+    list-style: decimal;
+    text-align: left;
+}
+.espaco{
+    width: 100%;
+    height: 10px;
+}
+.espaco span{
+    margin: 4px auto;
+    width:20%;
+    height:1px;
+    border-top:1px solid black;
+    border-radius: 4px;
+}
+
+.jumbotron{
+    padding: 10px;
 }

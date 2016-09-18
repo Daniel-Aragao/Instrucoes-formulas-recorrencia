@@ -15,7 +15,7 @@ $(function () {
 
             var index = animationGroups[groupid].animationCounter++;
             if (animationGroups[groupid].maxCounter < animationGroups[groupid].animationCounter) {
-                Balloon.info("Você chegou ao fim.", bOptions);
+                Balloon.danger("Você chegou ao fim.", bOptions);
             }
 
             $(animationGroups[groupid].filhos[index]).toggle();
